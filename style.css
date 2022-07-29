@@ -1,0 +1,82 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    }
+
+#container{
+    margin: 100px ;
+    border: black 5px solid;
+    width: 190px;
+    /*background-color: black;
+    background-image: linear-gradient(to bottom right, red yellow);*/
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZZf1sexT3mVDpQWCieBQv1zWHzTyvgU4LVQ&usqp=CAU");
+    border-radius: 10px;    
+}
+
+.rows{
+    display: flex;
+    justify-content: space-between;
+    max-width: 200px;
+    margin: 3px 1.5px;   
+    }
+.display{
+        border: black 2px solid;
+        
+        margin: 0 auto;
+        width: 130px;
+        border-radius: 10px;
+    }
+#top{
+    display: flex;
+    justify-content: flex-end;
+
+    }
+#del{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: blueviolet;
+}
+.buttons{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: black solid 1px;
+    background-color: black;
+    color: white;  
+    font-size: 20px;
+    }
+
+#c{
+    color: red;
+    }
+
+#equals{
+    background-color: green;
+    }
+
+#brackets, #percent, #divide, #multiply, #minus, #plus{
+    color: green;
+    }
+
+.buttons:hover{
+    background-color: skyblue;
+    border: white 1px solid;
+    transition: 0.4s;
+    }
+#equals:hover{
+    background-color: skyblue;
+    border: white 1px solid;
+    transition: 0.4s;
+}
+
+#del:hover{
+    background-color: skyblue;
+    border: white 1px solid;
+    transition: 0.4s;
+}
+.buttons:focus{
+    background-color: blueviolet;
+}
+
