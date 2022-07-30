@@ -20,11 +20,11 @@
     max-width: 200px;
     margin: 3px 1.5px;   
     }
-.display{
+#display{
         border: black 2px solid;
         
         margin: 0 auto;
-        width: 130px;
+        width: 130.1px;
         border-radius: 10px;
     }
 #top{
