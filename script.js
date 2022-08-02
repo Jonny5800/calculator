@@ -7,7 +7,7 @@ let theMath = document.getElementById("display").value = displayOutput;
 
 
 //buton values
-/*
+
 let buttonOne = document.getElementById("one").textContent;
 let buttonTwo = document.getElementById("two").textContent;
 let buttonThree = document.getElementById("three").textContent;
@@ -17,7 +17,7 @@ let buttonSix = document.getElementById("six").textContent;
 let buttonSeven = document.getElementById("seven").textContent;
 let buttonEight = document.getElementById("eight").textContent;
 let buttonNine = document.getElementById("nine").textContent;
-*/
+
 
 
 
@@ -34,20 +34,30 @@ let price = document.getElementById("nine").textContent;
 //console.log(buttonNine)
 //console.log(price) ****************
 
-
+/*
 let valueStore = 0
 console.log(valueStore)
+*/
 
 //Digit logs to console........
 //let pressAny = document.querySelectorAll("buttons");
 //pressAny.addEventListener("click", ()=>{console.log(24)})
 
+let sumStore = ""
+console.log(sumStore)
+/***************************** */
 let pressSeven = document.querySelector("#seven");
-pressSeven.addEventListener("click", ()=>{console.log(7)})
+pressSeven.addEventListener("click", function execute(){
+    console.log(buttonSeven.concat(sumStore))
+})
+/********************************************* */
+//console.log(sumStore.concat(buttonSeven))
+//console.log(pressSeven)
 
 let pressEight = document.querySelector("#eight");
-pressEight.addEventListener("click", ()=>{console.log(8)})
+pressEight.addEventListener("click", ()=>{console.log(document.getElementById("display").value + pressEight.textContent)})
 
+/*************************************************** */
 let pressNine = document.querySelector("#nine");
 pressNine.addEventListener("click",()=>{console.log(9)} )
 

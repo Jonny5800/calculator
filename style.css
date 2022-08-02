@@ -5,7 +5,7 @@
     }
 
 #container{
-    margin: 100px ;
+    margin: 20px ;
     border: black 5px solid;
     width: 190px;
     /*background-color: black;
@@ -61,10 +61,12 @@
     }
 
 .buttons:hover{
-    background-color: skyblue;
+    background-color: blue;
     border: white 1px solid;
     transition: 0.4s;
     }
+   
+
 #equals:hover{
     background-color: skyblue;
     border: white 1px solid;
@@ -76,7 +78,7 @@
     border: white 1px solid;
     transition: 0.4s;
 }
-.buttons:focus{
+/*.buttons:hover{
     background-color: blueviolet;
-}
+}*/
 
