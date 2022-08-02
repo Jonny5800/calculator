@@ -1,14 +1,28 @@
 
 // This is the display
 let displayOutput = 0
-displayOutput = 7
-let theMath = document.getElementById("display").value = displayOutput;
+displayOutput = parseInt("5")
+document.getElementById("display").value = displayOutput;
 
+let pressEight = document.querySelector("#eight");
+pressEight.addEventListener("click", ()=>{displayOutput + parseInt(buttonEight);
+console.log(pressEight);
+console.log(buttonEight)
+})
 
+//So far only managed to log the number 8 and the contents of the 8 button HTML
+
+// Methods tried in the Eventlistener function
+/*{displayOutput + parseInt(buttonEight)}  
+displayOutput.buttonEight
+displayOutput.textContent += buttonEight
+displayOutput.textContent = buttonEight
+
+*/
+//console.log(document.getElementById("display").value + pressEight.textContent)
 
 //buton values
-
-let buttonOne = document.getElementById("one").textContent;
+let buttonOne = document.getElementById("one").textContent; //buttonOne will log the button value
 let buttonTwo = document.getElementById("two").textContent;
 let buttonThree = document.getElementById("three").textContent;
 let buttonFour = document.getElementById("four").textContent;
@@ -19,17 +33,6 @@ let buttonEight = document.getElementById("eight").textContent;
 let buttonNine = document.getElementById("nine").textContent;
 
 
-
-
-
-function output() {
-console.log(price.value)
-}
-
-let price = document.getElementById("nine").textContent; 
-//price.addEventListener("click", output, true)
-
-//console.log(price)
 
 //console.log(buttonNine)
 //console.log(price) ****************
@@ -54,11 +57,13 @@ pressSeven.addEventListener("click", function execute(){
 //console.log(sumStore.concat(buttonSeven))
 //console.log(pressSeven)
 
-let pressEight = document.querySelector("#eight");
+//pressEight Working.......
+/*let pressEight = document.querySelector("#eight");
 pressEight.addEventListener("click", ()=>{console.log(document.getElementById("display").value + pressEight.textContent)})
+*/
 
 /*************************************************** */
-let pressNine = document.querySelector("#nine");
+let pressNine = document.querySelector("#nine"); //PressNine will log the whole div
 pressNine.addEventListener("click",()=>{console.log(9)} )
 
 let pressMultiply = document.querySelector("#multiply");
@@ -110,5 +115,19 @@ buttonInput.addEventListener("click", ()=> {console.log(buttonInput)})
 let calcButton = document.getElementsByClassName("buttons");
 //calcButton.addEventListener("click", ()=>{console.log(calcButton)})
 
-//console.log(pressNine)
+//console.log(pressZero) ....Logs the div for zero
 //console.log(buttonNine)
+
+
+
+//Placed at the bottom instead of deleting completely
+/*
+function output() {
+console.log(price.value)
+}
+
+let price = document.getElementById("nine").textContent; 
+price.addEventListener("click", output, true)
+
+console.log(price)
+*/
