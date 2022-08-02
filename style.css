@@ -22,10 +22,11 @@
     }
 #display{
         border: black 2px solid;
-        
+        text-align: right;
         margin: 0 auto;
         width: 130.1px;
         border-radius: 10px;
+        padding: 0px 5px;
     }
 #top{
     display: flex;
