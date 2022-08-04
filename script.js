@@ -4,12 +4,21 @@
 /*function showDisplay(){
     code to update the display to HTML after receiving button value inputs
     }*/
-let displayOutput = 0
+
+//Original display from and to DOM
+displayOutput = ""
 displayOutput.textContent = "" //parseInt()
 document.getElementById("display").value = displayOutput;
 
 
-let tryDisplay = document.getElementById("display").innerHTML = 4
+/*
+//THIS SEEMS TO BE THE STICKING POINT - cannot get anything to show up in the cals screen **edit - solved above by display output**
+// classname, ID, queryselector, nothing shows even after deleting the placeholder.
+const screenDisplay = document.querySelector(".showIt") 
+screenDisplay = 187
+*/
+
+//let tryDisplay = document.getElementById("display").innerHTML = "kw" interferes with button 5's value
 
 
 let pressEight = document.querySelector("#eight");
@@ -87,8 +96,116 @@ pressFour.addEventListener("click", ()=>{
     displayOutput.appendNumber(pressFour.innerText)
 })
 
+//Evolution of getting the five button to work >>>>>>>
+
+//VERSION 1
+/*let pressFive = document.querySelector("#five");
+pressFive.addEventListener("click", ()=>{
+    console.log(5)})*/
+
+/*let pressFive = document.querySelector("#five");
+pressFive.addEventListener("click", fiveFunc =>{
+    console.log(fiveFunc.target) //logs the 5 button HTML element
+    if (fiveFunc.target.closest("button"))return
+})    
+*/
+
+//VERSION 2
+/*let pressFive = document.querySelector("#five");
+pressFive.addEventListener("click", fiveFunc =>{
+    //console.log(fiveFunc.target) //logs the 5 button HTML element
+    if (!fiveFunc.target.closest("button"))return //randomWordNotButtons
+
+    let key5 = fiveFunc.target;
+    //console.log(key5.textContent) Logs the digit 5
+    let key5Value = key5.textContent
+    //console.log(key5Value) Also logs the digit 5
+})*/
+
+//VERSION 3
+/*let pressFive = document.querySelector("#five");
+pressFive.addEventListener("click", fiveFunc =>{
+    //console.log(fiveFunc.target) //logs the 5 button HTML element
+    if (!fiveFunc.target.closest("button"))return //randomWordNotButtons
+
+    let key5 = fiveFunc.target;
+    //console.log(key5.textContent) Logs the digit 5
+    let key5Value = key5.textContent
+    //console.log(key5Value) Also logs the digit 5
+
+    let = displayVal = display.textContent //Not sure how JS picks up the DISPLAY element with no other reference to it
+    //console.log(displayVal) doesnt log anything
+
+})*/
+
+//VERSION 4
+/*
 let pressFive = document.querySelector("#five");
-pressFive.addEventListener("click", ()=>{console.log(5)})
+pressFive.addEventListener("click", fiveFunc =>{
+    //console.log(fiveFunc.target) //logs the 5 button HTML element
+    if (!fiveFunc.target.closest("button"))return //randomWordNotButtons
+
+    let key5 = fiveFunc.target;
+    //console.log(key5.textContent) Logs the digit 5
+    let key5Value = key5.textContent
+    //console.log(key5Value) Also logs the digit 5
+
+    let = displayVal = display.textContent //Not sure how JS picks up the DISPLAY element with no other reference to it
+    //console.log(displayVal) doesnt log anything
+
+    display.textContent = 40 //key5Value
+
+})*/
+
+//VERSION 5
+/*
+let pressFive = document.querySelector("#five");
+pressFive.addEventListener("click", fiveFunc =>{
+    //console.log(fiveFunc.target) //logs the 5 button HTML element
+    if (!fiveFunc.target.closest("button"))return //randomWordNotButtons
+
+    let key5 = fiveFunc.target;
+    //console.log(key5.textContent) Logs the digit 5
+    let key5Value = key5.textContent
+    //console.log(key5Value) Also logs the digit 5
+
+    let = displayVal = display.textContent //Not sure how JS picks up the DISPLAY element with no other reference to it
+    //console.log(displayVal) doesnt log anything
+
+    display.textContent = 40 //key5Value
+    //console.log(displayVal) //logs 40 while display.textContent is set to 40
+
+    console.log(key5Value)
+    displayOutput.textContent = key5Value
+
+})*/
+//VERSION 6
+let pressFive = document.querySelector("#five");
+pressFive.addEventListener("click", fiveFunc =>{
+    //console.log(fiveFunc.target) //logs the 5 button HTML element
+    if (!fiveFunc.target.closest("button"))return //randomWordNotButtons
+
+    let key5 = fiveFunc.target;
+    //console.log(key5.textContent) Logs the digit 5
+    let key5Value = key5.textContent
+    //console.log(key5Value) Also logs the digit 5
+
+    let = displayVal = display.textContent //Not sure how JS picks up the DISPLAY element with no other reference to it
+    //console.log(displayVal) doesnt log anything
+
+    display.textContent = 40 //key5Value
+    //console.log(displayVal) //logs 40 while display.textContent is set to 40
+
+    console.log(key5Value)
+    displayOutput = key5Value
+
+    //Possibly mkae use of  **.this** to make displayOutput available outside of the pressFive function
+    
+    //Original display from and to DOM
+    displayOutput = ""
+    displayOutput.textContent = "" //parseInt()
+    document.getElementById("display").value = displayOutput; //"original display" copy pasted inside the function for the scope of displayOutput(didnt work)
+})
 
 let pressSix = document.querySelector("#six");
 pressSix.addEventListener("click", ()=>{console.log(6)})
