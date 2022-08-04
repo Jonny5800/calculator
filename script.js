@@ -2,6 +2,7 @@
 // This is the display
 
 /*function showDisplay(){
+    code to update the display to HTML after receiving button value inputs
     }*/
 let displayOutput = 0
 displayOutput.textContent = "" //parseInt()
