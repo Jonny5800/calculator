@@ -1,13 +1,21 @@
 
 // This is the display
+
+/*function showDisplay(){
+    }*/
 let displayOutput = 0
-displayOutput = parseInt("5")
+displayOutput.textContent = "" //parseInt()
 document.getElementById("display").value = displayOutput;
 
+
+let tryDisplay = document.getElementById("display").innerHTML = 4
+
+
 let pressEight = document.querySelector("#eight");
-pressEight.addEventListener("click", ()=>{displayOutput + parseInt(buttonEight);
+pressEight.addEventListener("click", ()=>{displayOutput  =buttonEight ;
 console.log(pressEight);
-console.log(buttonEight)
+console.log(buttonEight);
+
 })
 
 //So far only managed to log the number 8 and the contents of the 8 button HTML
@@ -63,14 +71,20 @@ pressEight.addEventListener("click", ()=>{console.log(document.getElementById("d
 */
 
 /*************************************************** */
+
+
 let pressNine = document.querySelector("#nine"); //PressNine will log the whole div
 pressNine.addEventListener("click",()=>{console.log(9)} )
 
 let pressMultiply = document.querySelector("#multiply");
 pressMultiply.addEventListener("click", ()=>{console.log("*")})
 
+//display output not a function. 
+//create a function for the display and try this 
 let pressFour = document.querySelector("#four");
-pressFour.addEventListener("click", ()=>{console.log(4)})
+pressFour.addEventListener("click", ()=>{
+    displayOutput.appendNumber(pressFour.innerText)
+})
 
 let pressFive = document.querySelector("#five");
 pressFive.addEventListener("click", ()=>{console.log(5)})
