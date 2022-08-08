@@ -20,13 +20,34 @@ screenDisplay = 187
 
 //let tryDisplay = document.getElementById("display").innerHTML = "kw" interferes with button 5's value
 
+//button eight working in this
+/*
+let pressEight = document.querySelector("#eight");
+pressEight.addEventListener("click", ()=>{displayOutput  =buttonEight ; 
+console.log(pressEight); //logs the HTML for 8
+console.log(buttonEight); //logs digit 8
+})
+*/
 
 let pressEight = document.querySelector("#eight");
-pressEight.addEventListener("click", ()=>{displayOutput  =buttonEight ;
-console.log(pressEight);
-console.log(buttonEight);
+pressEight.addEventListener("click", ()=>{displayOutput  =buttonEight ; 
+console.log(pressEight); //logs the HTML for 8
+//console.log(buttonEight); //logs digit 8
+return pressEight = buttonEight
 
 })
+
+
+const obj = {
+    someValue: 100,
+    someFunc: function () {
+        return this.someValue;
+    },
+};
+
+
+let getValue = obj.someFunc.bind(obj);
+console.log(getValue())
 
 //So far only managed to log the number 8 and the contents of the 8 button HTML
 
