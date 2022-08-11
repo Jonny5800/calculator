@@ -1,4 +1,10 @@
 let currentValue = "";
+/* Process
+ 1 - Show pressed number value(s) on screen
+ - Store the initial pressed button values
+ - 
+
+*/
 
 //All DOM elements
 const buttonZero = document.getElementById("zero");
@@ -37,13 +43,18 @@ const numberElements = [
   buttonZero,
 ];
 
+//example loop
 //for (i = 0; i< numberElements.length ; i++){
 //numberElements[i].addEventListener
 //}
+//....................
+//
+//............
 numberElements.forEach((ref) => {
   ref.addEventListener("click", (elem) => {
     updateDisplay(elem.target.textContent);
     currentValue = currentValue + elem.target.textContent;
+    console.log(currentValue);
   });
 });
 
@@ -53,7 +64,20 @@ buttonMultiply.addEventListener("click", () => {
 buttonMinus.addEventListener("click", () => {
   console.log("Minus");
 });
-buttonPlus.addEventListener("click", () => console.log("plus"));
+
+buttonPlus.addEventListener("click", (adding) => {
+  currentValue + adding.target.textContent;
+  console.log(currentValue.concat(adding));
+
+  console.log(adding.target.textContent);
+  console.log("plus");
+  /*when plus is pressed:
+   - store current value
+   */
+
+  // eval(currentValue + displayValue);
+});
+
 buttonEquals.addEventListener("click", () => {
   console.log("equals");
 });
@@ -63,6 +87,7 @@ buttonDivide.addEventListener("click", () => {
 buttonClear.addEventListener("click", () => {
   console.log("clear");
 });
+
 /*
 buttonOne.addEventListener("click", (elem) => {
   console.log(elem.target.textContent);
@@ -75,8 +100,8 @@ buttonTwo.addEventListener("click", (elem) => {
 buttonThree.addEventListener("click", () => {
   updateDisplay(3);
 });
+
 */
-// This is the display
 
 /*function showDisplay(){
     code to update the display to HTML after receiving button value inputs
