@@ -94,9 +94,16 @@ buttonEquals.addEventListener("click", (/*resulting*/) => {
     /*currentValue*/
   );
 });
-buttonDivide.addEventListener("click", () => {
+buttonDivide.addEventListener("click", (divider) => {
   console.log("divide");
   console.log(currentValue);
+  console.log(divider.target.textContent + "...divider.target.textContent");
+  console.log(
+    currentValue.concat(divider.target.textContent) +
+      "...currentValue.concat(divider.target.textContent)"
+  );
+  currentValue = currentValue.concat(divider.target.textContent);
+  console.log(currentValue + "...currentValue");
 });
 buttonClear.addEventListener("click", () => {
   console.log("clear");
