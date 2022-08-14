@@ -80,14 +80,23 @@ buttonPlus.addEventListener("click", (adding) => {
   // eval(currentValue + displayValue);
 });
 
-buttonEquals.addEventListener("click", (resulting) => {
+buttonEquals.addEventListener("click", (/*resulting*/) => {
   console.log(currentValue + "hello");
-  console.log(eval(currentValue));
+  currentValue = eval(currentValue);
+  console.log(currentValue + "currentValue");
+  //console.log(resulting + "this is resulting");
   console.log("equals");
-  updateDisplay(currentValue);
+
+  //console.log(displayValue + "answer");  displayValue not defined
+  //currentValue = resulting;
+  updateDisplay(
+    (currentValue /= 2) /*- gives double the expected answer*/
+    /*currentValue*/
+  );
 });
 buttonDivide.addEventListener("click", () => {
   console.log("divide");
+  console.log(currentValue);
 });
 buttonClear.addEventListener("click", () => {
   console.log("clear");
