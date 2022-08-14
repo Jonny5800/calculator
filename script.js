@@ -58,10 +58,15 @@ numberElements.forEach((ref) => {
   });
 });
 
-buttonMultiply.addEventListener("click", () => {
+buttonMultiply.addEventListener("click", (timesing) => {
   console.log("multiply");
+  console.log(currentValue + "...current value");
+  console.log(timesing.target.textContent + "...multiply button text content");
+  console.log(currentValue + timesing.target.textContent);
+  currentValue = currentValue + timesing.target.textContent;
 });
-buttonMinus.addEventListener("click", () => {
+buttonMinus.addEventListener("click", (takeAway) => {
+  currentValue = currentValue + takeAway.target.textContent;
   console.log("Minus");
 });
 
@@ -81,7 +86,7 @@ buttonPlus.addEventListener("click", (adding) => {
 });
 
 buttonEquals.addEventListener("click", (/*resulting*/) => {
-  console.log(currentValue + "hello");
+  console.log(currentValue + "pressed equals");
   currentValue = eval(currentValue);
   console.log(currentValue + "currentValue");
   //console.log(resulting + "this is resulting");
