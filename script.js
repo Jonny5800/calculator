@@ -67,10 +67,12 @@ buttonMinus.addEventListener("click", () => {
 
 buttonPlus.addEventListener("click", (adding) => {
   currentValue + adding.target.textContent;
-  console.log(currentValue.concat(adding));
+  //console.log(currentValue.concat(adding)); //logs [object pointer event]
 
-  console.log(adding.target.textContent);
-  console.log("plus");
+  console.log(adding.target.textContent); //logs ... + ...
+  //console.log("plus"); //logs the word plus
+  console.log(currentValue.concat(adding.target.textContent)); // logs the current values and concatenates the + sign
+  currentValue = currentValue.concat(adding.target.textContent);
   /*when plus is pressed:
    - store current value
    */
@@ -78,8 +80,11 @@ buttonPlus.addEventListener("click", (adding) => {
   // eval(currentValue + displayValue);
 });
 
-buttonEquals.addEventListener("click", () => {
+buttonEquals.addEventListener("click", (resulting) => {
+  console.log(currentValue + "hello");
+  console.log(eval(currentValue));
   console.log("equals");
+  updateDisplay(currentValue);
 });
 buttonDivide.addEventListener("click", () => {
   console.log("divide");
