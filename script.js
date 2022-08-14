@@ -107,6 +107,7 @@ buttonDivide.addEventListener("click", (divider) => {
 });
 buttonClear.addEventListener("click", () => {
   console.log("clear");
+  updateDisplay((currentValue = ""));
 });
 
 /*
