@@ -57,9 +57,9 @@ numberElements.forEach((ref) => {
 });
 
 buttonMultiply.addEventListener("click", (timesing) => {
-  console.log("multiply");
-  console.log(currentValue + "...current value");
-  console.log(timesing.target.textContent + "...multiply button text content");
+  //console.log("multiply");
+  //console.log(currentValue + "...current value");
+  //console.log(timesing.target.textContent + "...multiply button text content");
   console.log(currentValue + timesing.target.textContent);
   currentValue = currentValue + timesing.target.textContent;
 });
@@ -72,18 +72,18 @@ buttonPlus.addEventListener("click", (adding) => {
   currentValue + adding.target.textContent;
   //console.log(currentValue.concat(adding)); //logs [object pointer event]
 
-  console.log(adding.target.textContent); //logs ... + ...
+  //console.log(adding.target.textContent); //logs ... + ...
 
   console.log(currentValue.concat(adding.target.textContent)); // logs the current values and concatenates the + sign
   currentValue = currentValue.concat(adding.target.textContent);
 });
 
 buttonEquals.addEventListener("click", (/*resulting*/) => {
-  console.log(currentValue + "pressed equals");
+  //console.log(currentValue + "pressed equals");
   currentValue = eval(currentValue);
-  console.log(currentValue + "currentValue");
+  console.log(currentValue + "   << currentValue");
 
-  console.log("equals");
+  //console.log("equals");
 
   updateDisplay(
     (currentValue /= 2) /*- gives double the expected answer*/
@@ -91,15 +91,15 @@ buttonEquals.addEventListener("click", (/*resulting*/) => {
   );
 });
 buttonDivide.addEventListener("click", (divider) => {
-  console.log("divide");
-  console.log(currentValue);
-  console.log(divider.target.textContent + "...divider.target.textContent");
-  console.log(
-    currentValue.concat(divider.target.textContent) +
-      "...currentValue.concat(divider.target.textContent)"
-  );
+  // console.log("divide");
+  // console.log(currentValue);
+  // console.log(divider.target.textContent + "...divider.target.textContent");
+  //  console.log(
+  //     currentValue.concat(divider.target.textContent) +
+  //       "...currentValue.concat(divider.target.textContent)"
+  //   );
   currentValue = currentValue.concat(divider.target.textContent);
-  console.log(currentValue + "...currentValue");
+  console.log(currentValue);
 });
 buttonClear.addEventListener("click", () => {
   console.log("clear");
@@ -109,14 +109,21 @@ buttonClear.addEventListener("click", () => {
 //remove last character of display
 buttonDelete.addEventListener("click", () => {
   console.log("Delete pressed");
-  console.log(currentValue.lenght);
-  console.log(updateDisplay.length);
-  console.log(display.value.length);
-  console.log(display.value + "this is display value to slice");
+  console.log(currentValue.lenght + "  ...current value.length");
+  console.log(updateDisplay.length) + "  ...updateDisplay.length";
+  console.log(display.value.length + "  ...log display.value.length");
+  console.log(display.value + "  ...this is display value to slice");
   let toSlice = display.value;
-  let beenSliced = toSlice.slice(0, 4);
+  console.log(toSlice + "  ...before slice");
+  let beenSliced = toSlice.slice(0, 4 /*(display.value.length -= -1)*/);
+  /*
+  If the display has "1+2+3", .slice(0,4) will remove the 3 from the end.
+  This is 
+  */
+  console.log(display.value.length + "..length after alter");
+  // updateDisplay(currentValue);
   //need to actually update the display here because the sliced character comes back
-  console.log(beenSliced);
+  console.log(beenSliced + "   ...value after slice");
 
   //updateDisplay()
 });
