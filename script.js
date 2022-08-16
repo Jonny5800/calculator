@@ -1,11 +1,8 @@
 let currentValue = "";
-/* Process
- 1 - Show pressed number value(s) on screen
- - Store the initial pressed button values
- - 
 
-*/
-
+/*Things to fix
+- Function buttons - Make it so only one can be selected between numbers. Not like e.g 4+*5  
+-Fix Del - Make Del button remove the last button input*/
 //All DOM elements
 const buttonZero = document.getElementById("zero");
 const buttonOne = document.getElementById("one"); //buttonOne will log the button value
@@ -24,6 +21,7 @@ const buttonPlus = document.getElementById("plus");
 const buttonEquals = document.getElementById("equals");
 const buttonDivide = document.getElementById("divide");
 const display = document.getElementById("display");
+const buttonDelete = document.getElementById("del");
 
 function updateDisplay(displayValue) {
   display.value = currentValue + displayValue;
@@ -75,25 +73,18 @@ buttonPlus.addEventListener("click", (adding) => {
   //console.log(currentValue.concat(adding)); //logs [object pointer event]
 
   console.log(adding.target.textContent); //logs ... + ...
-  //console.log("plus"); //logs the word plus
+
   console.log(currentValue.concat(adding.target.textContent)); // logs the current values and concatenates the + sign
   currentValue = currentValue.concat(adding.target.textContent);
-  /*when plus is pressed:
-   - store current value
-   */
-
-  // eval(currentValue + displayValue);
 });
 
 buttonEquals.addEventListener("click", (/*resulting*/) => {
   console.log(currentValue + "pressed equals");
   currentValue = eval(currentValue);
   console.log(currentValue + "currentValue");
-  //console.log(resulting + "this is resulting");
+
   console.log("equals");
 
-  //console.log(displayValue + "answer");  displayValue not defined
-  //currentValue = resulting;
   updateDisplay(
     (currentValue /= 2) /*- gives double the expected answer*/
     /*currentValue*/
@@ -115,7 +106,49 @@ buttonClear.addEventListener("click", () => {
   updateDisplay((currentValue = ""));
 });
 
+//remove last character of display
+buttonDelete.addEventListener("click", () => {
+  console.log("Delete pressed");
+  console.log(currentValue.lenght);
+  console.log(updateDisplay.length);
+  console.log(display.value.length);
+  console.log(display.value + "this is display value to slice");
+  let toSlice = display.value;
+  let beenSliced = toSlice.slice(0, 4);
+  //need to actually update the display here because the sliced character comes back
+  console.log(beenSliced);
+
+  //updateDisplay()
+});
 /*
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 buttonOne.addEventListener("click", (elem) => {
   console.log(elem.target.textContent);
   updateDisplay(1);
