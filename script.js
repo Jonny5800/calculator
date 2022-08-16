@@ -115,7 +115,12 @@ buttonDelete.addEventListener("click", () => {
   console.log(display.value + "  ...this is display value to slice");
   let toSlice = display.value;
   console.log(toSlice + "  ...before slice");
-  let beenSliced = toSlice.slice(0, 4 /*(display.value.length -= -1)*/);
+  console.log(--toSlice.length + "...slice length");
+  // bring back if solution dud let beenSliced = toSlice.slice(0, 4 /*(display.value.length -= -1)*/);
+  let beenSliced = toSlice.slice(
+    0,
+    --toSlice.length /*(display.value.length -= -1)*/
+  );
   /*
   If the display has "1+2+3", .slice(0,4) will remove the 3 from the end.
   This is 
@@ -125,6 +130,7 @@ buttonDelete.addEventListener("click", () => {
   //need to actually update the display here because the sliced character comes back
   console.log(beenSliced + "   ...value after slice");
 
+  updateDisplay(beenSliced);
   //updateDisplay()
 });
 /*
