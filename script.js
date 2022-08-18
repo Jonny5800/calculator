@@ -109,29 +109,40 @@ buttonClear.addEventListener("click", () => {
 //remove last character of display
 buttonDelete.addEventListener("click", () => {
   console.log("Delete pressed");
-  console.log(currentValue.lenght + "  ...current value.length");
-  console.log(updateDisplay.length) + "  ...updateDisplay.length";
-  console.log(display.value.length + "  ...log display.value.length");
-  console.log(display.value + "  ...this is display value to slice");
-  let toSlice = display.value;
-  console.log(toSlice + "  ...before slice");
-  console.log(--toSlice.length + "...slice length");
-  // bring back if solution dud let beenSliced = toSlice.slice(0, 4 /*(display.value.length -= -1)*/);
-  let beenSliced = toSlice.slice(
-    0,
-    --toSlice.length /*(display.value.length -= -1)*/
-  );
-  /*
-  If the display has "1+2+3", .slice(0,4) will remove the 3 from the end.
-  This is 
-  */
-  console.log(display.value.length + "..length after alter");
-  // updateDisplay(currentValue);
-  //need to actually update the display here because the sliced character comes back
-  console.log(beenSliced + "   ...value after slice");
+  //second go is between here
+  //*
+  console.log(currentValue + "...currentValue from delete");
+  console.log(display.value + "...display.value  from delete");
+  let str = display.Value;
+  let str2 = str.substring(0, str.length - 1);
+  console.log(str2 + "...the current value after delete");
+  return (dislay.Value = str2);
+  console;
+  //*
+  //second go is between here
+  // console.log(currentValue.lenght + "  ...current value.length");
+  // console.log(updateDisplay.length + "...updateDisplay.length");
+  // console.log(display.value.length + "  ...log display.value.length");
+  // console.log(display.value + "  ...this is display value to slice");
+  // let toSlice = display.value;
+  // console.log(toSlice + "  ...before slice");
+  // console.log(--toSlice.length + "...slice length");
+  // keep commented// bring back if solution dud let beenSliced = toSlice.slice(0, 4 /*(display.value.length -= -1)*/);
+  // let beenSliced = toSlice.slice(
+  //   0,
+  //   --toSlice.length /*(display.value.length -= -1)*/
+  // );
+  // /*
+  // If the display has "1+2+3", .slice(0,4) will remove the 3 from the end.
+  // This is
+  // */
+  // console.log(display.value.length + "..length after alter");
+  // keep commented// updateDisplay(currentValue);
+  // keep commented//need to actually update the display here because the sliced character comes back
+  // console.log(beenSliced + "   ...value after slice");
 
-  updateDisplay(beenSliced);
-  //updateDisplay()
+  // updateDisplay(beenSliced);
+  // keep commented//updateDisplay()
 });
 /*
 .
