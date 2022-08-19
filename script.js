@@ -27,6 +27,7 @@ function updateDisplay(displayValue) {
   display.value = currentValue + displayValue;
   console.log(displayValue + "...displayValue func");
   console.log(currentValue + "...currentValue func");
+  console.log(display.value + "...display.value");
 }
 
 //Eventlisteners
@@ -116,35 +117,55 @@ buttonClear.addEventListener("click", () => {
 });
 
 //remove last character of display
-buttonDelete.addEventListener("click", () => {
+buttonDelete.addEventListener("click", (deleter) => {
   console.log("Delete pressed");
+  console.log(display.value + "...display.value");
+  console.log(currentValue + "...currentValue");
+  console.log(display.value + "...displayValue");
   // 3 possible methods
   // 1- substring()
   // 2 - slice()
   // 3 - substr() (old method)
+  //take the value of the display
+  //remove the last character of the string
+  //return the new shorter string
+  //update the display with the new shorter value
 
-  let str = currentValue;
-  console.log(currentValue);
-  str = str.substring(0, str.length - 1);
+  var str = display.value;
+  str = str.substr(0, str.length - 1);
+  console.log(str + "this should get shortened");
+  return (display.value = str);
 
-  console.log(str + "...str");
-  updateDisplay((displayValue = str));
-  return (currentValue = str);
+  //  *
+  // *Come back to this if failure***********
+  // let str = currentValue;
+  // console.log(currentValue);
+  // str = str.substring(0, str.length - 1);
+
+  // console.log(str + "...str");
+  // updateDisplay((displayValue = str));
+  //return (currentValue = str);
+  //*
+  // *
   // updateDisplay(displayValue);
 
   //second go between here
   // *
   // *
-  //   console.log(currentValue + "...currentValue from delete");
-  //   console.log(display.value + "...display.value  from delete");
-  //   let str = display.Value;
-  //   let str2 = str.substring(0, str.length - 1);
-  //   console.log(str2 + "...the current value after delete");
-  //   return (dislay.Value = str2);
-  //   console;
-  // *
+  // console.log(currentValue + "...currentValue from delete");
+  // console.log(display.value + "...display.value  from delete");
+  // let str = display.Value;
+  // let str2 = str.substring(0, str.length - 1);
+  // console.log(str2 + "...the current value after delete");
+  // return (dislay.Value = str2);
+  // console;
+  // // *
   // *
   //second go is between here
+
+  // *
+  // *
+  // *
   // console.log(currentValue.lenght + "  ...current value.length");
   // console.log(updateDisplay.length + "...updateDisplay.length");
   // console.log(display.value.length + "  ...log display.value.length");
@@ -152,12 +173,13 @@ buttonDelete.addEventListener("click", () => {
   // let toSlice = display.value;
   // console.log(toSlice + "  ...before slice");
   // console.log(--toSlice.length + "...slice length");
-  // keep commented// bring back if solution dud let beenSliced = toSlice.slice(0, 4 /*(display.value.length -= -1)*/);
+  // /*// keep commented// bring back if solution dud let*/ beenSliced =
+  //   toSlice.slice(0, 4((display.value.length -= -1)));
   // let beenSliced = toSlice.slice(
   //   0,
   //   --toSlice.length /*(display.value.length -= -1)*/
   // );
-  // /*
+  // // /*
   // If the display has "1+2+3", .slice(0,4) will remove the 3 from the end.
   // This is
   // */
