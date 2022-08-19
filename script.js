@@ -25,6 +25,8 @@ const buttonDelete = document.getElementById("del");
 
 function updateDisplay(displayValue) {
   display.value = currentValue + displayValue;
+  console.log(displayValue + "...displayValue func");
+  console.log(currentValue + "...currentValue func");
 }
 
 //Eventlisteners
@@ -51,6 +53,7 @@ const numberElements = [
 numberElements.forEach((ref) => {
   ref.addEventListener("click", (elem) => {
     updateDisplay(elem.target.textContent);
+    //console.log(elem.target.textContent + "...elem.target.textContent");
     currentValue = currentValue + elem.target.textContent;
     console.log(currentValue);
   });
@@ -70,12 +73,18 @@ buttonMinus.addEventListener("click", (takeAway) => {
 
 buttonPlus.addEventListener("click", (adding) => {
   currentValue + adding.target.textContent;
+  console.log(
+    currentValue +
+      adding.target.textContent +
+      "...currentValue + adding.target.textContent"
+  );
   //console.log(currentValue.concat(adding)); //logs [object pointer event]
 
   //console.log(adding.target.textContent); //logs ... + ...
 
   console.log(currentValue.concat(adding.target.textContent)); // logs the current values and concatenates the + sign
   currentValue = currentValue.concat(adding.target.textContent);
+  console.log(adding.target.textContent + "...adding.target.textContent");
 });
 
 buttonEquals.addEventListener("click", (/*resulting*/) => {
@@ -109,25 +118,32 @@ buttonClear.addEventListener("click", () => {
 //remove last character of display
 buttonDelete.addEventListener("click", () => {
   console.log("Delete pressed");
+  // 3 possible methods
+  // 1- substring()
+  // 2 - slice()
+  // 3 - substr() (old method)
 
-  /*
-DOESNT WORK
-  let str = displayValue;
+  let str = currentValue;
+  console.log(currentValue);
   str = str.substring(0, str.length - 1);
 
-  console.log(str);
-  updateDisplay(displayValue);
-  */
+  console.log(str + "...str");
+  updateDisplay((displayValue = str));
+  return (currentValue = str);
+  // updateDisplay(displayValue);
 
   //second go between here
-  console.log(currentValue + "...currentValue from delete");
-  console.log(display.value + "...display.value  from delete");
-  let str = display.Value;
-  let str2 = str.substring(0, str.length - 1);
-  console.log(str2 + "...the current value after delete");
-  return (dislay.Value = str2);
-  console;
-
+  // *
+  // *
+  //   console.log(currentValue + "...currentValue from delete");
+  //   console.log(display.value + "...display.value  from delete");
+  //   let str = display.Value;
+  //   let str2 = str.substring(0, str.length - 1);
+  //   console.log(str2 + "...the current value after delete");
+  //   return (dislay.Value = str2);
+  //   console;
+  // *
+  // *
   //second go is between here
   // console.log(currentValue.lenght + "  ...current value.length");
   // console.log(updateDisplay.length + "...updateDisplay.length");
