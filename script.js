@@ -130,7 +130,7 @@ buttonDelete.addEventListener("click", (deleter) => {
   //remove the last character of the string
   //return the new shorter string
   //update the display with the new shorter value
-
+  //*
   var str = display.value;
   str = str.substr(0, str.length - 1);
   console.log(str + "this should get shortened");
