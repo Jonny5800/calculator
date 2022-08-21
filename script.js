@@ -80,11 +80,12 @@ buttonPlus.addEventListener("click", (adding) => {
       "...currentValue + adding.target.textContent"
   );
   //console.log(currentValue.concat(adding)); //logs [object pointer event]
-
   //console.log(adding.target.textContent); //logs ... + ...
 
-  console.log(currentValue.concat(adding.target.textContent)); // logs the current values and concatenates the + sign
-  currentValue = currentValue.concat(adding.target.textContent);
+  currentValue = currentValue + adding.target.textContent; /***WORKING HERE****/
+  console.log("adding");
+  // // console.log(currentValue.concat(adding.target.textContent)); // logs the current values and concatenates the + sign
+  // currentValue = currentValue.concat(adding.target.textContent);
   console.log(adding.target.textContent + "...adding.target.textContent");
 });
 
@@ -119,9 +120,9 @@ buttonClear.addEventListener("click", () => {
 //remove last character of display
 buttonDelete.addEventListener("click", (deleter) => {
   console.log("Delete pressed");
-  console.log(display.value + "...display.value");
-  console.log(currentValue + "...currentValue");
-  console.log(display.value + "...displayValue");
+  console.log(display.value + "...display.value in deleter");
+  console.log(currentValue + "...currentValue in deleter");
+  console.log(display.value + "...displayValue in deleter");
   // 3 possible methods
   // 1- substring()
   // 2 - slice()
@@ -133,9 +134,16 @@ buttonDelete.addEventListener("click", (deleter) => {
   //*
   var str = display.value;
   str = str.substr(0, str.length - 1);
+  console.log(str + "this should get shortened in deleter");
+  //displayValue = "";
+  currentValue = ""; //trial with these
+  return (display.value = str);
+  /*******This partly works - deletes multiple*******
+  var str = display.value;
+  str = str.substr(0, str.length - 1);
   console.log(str + "this should get shortened");
   return (display.value = str);
-
+*/
   //  *
   // *Come back to this if failure***********
   // let str = currentValue;
