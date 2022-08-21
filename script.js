@@ -24,7 +24,7 @@ const display = document.getElementById("display");
 const buttonDelete = document.getElementById("del");
 
 function updateDisplay(displayValue) {
-  display.value = currentValue + displayValue;
+  display.value = currentValue || displayValue;
   console.log(displayValue + "...displayValue func");
   console.log(currentValue + "...currentValue func");
   console.log(display.value + "...display.value");
@@ -97,7 +97,7 @@ buttonEquals.addEventListener("click", (/*resulting*/) => {
   //console.log("equals");
 
   updateDisplay(
-    (currentValue /= 2) /*- gives double the expected answer*/
+    currentValue /* THIS REMOVED EXPERIMENTALLY/= 2*/ /*- gives double the expected answer*/
     /*currentValue*/
   );
 });
@@ -109,7 +109,8 @@ buttonDivide.addEventListener("click", (divider) => {
   //     currentValue.concat(divider.target.textContent) +
   //       "...currentValue.concat(divider.target.textContent)"
   //   );
-  currentValue = currentValue.concat(divider.target.textContent);
+  // REPLACED BY THE LINE BELOW - currentValue = currentValue.concat(divider.target.textContent);
+  currentValue = currentValue + divider.target.textContent;
   console.log(currentValue);
 });
 buttonClear.addEventListener("click", () => {
