@@ -139,7 +139,9 @@ buttonDelete.addEventListener("click", (deleter) => {
   str = str.substr(0, str.length - 1);
   console.log(str + "this should get shortened in deleter");
   //displayValue = "";
-  currentValue = ""; //trial with these
+  currentValue = str; //trial with these
+  console.log(currentValue + "...currentValue inside delete");
+  //console.log(displayValue + "...displayValue inside delete");
   return (display.value = str);
   /*******This partly works - deletes multiple*******
   var str = display.value;
