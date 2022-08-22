@@ -25,8 +25,8 @@ const buttonDelete = document.getElementById("del");
 
 function updateDisplay(displayValue) {
   display.value = currentValue + displayValue;
-  console.log(displayValue + "...displayValue func");
   console.log(currentValue + "...currentValue func");
+  console.log(displayValue + "...displayValue func");
   console.log(display.value + "...display.value");
 }
 
@@ -97,12 +97,11 @@ buttonEquals.addEventListener("click", (/*resulting*/) => {
   console.log(displayValue + "...displayValue from equals");
 
   //console.log("equals");
-
-  updateDisplay(
-    displayValue //this used to replace currentValue
-    //currentValue /* THIS REMOVED EXPERIMENTALLY/= 2*/ /*- gives double the expected answer*/
-    /*currentValue*/
-  );
+  currentValue = "";
+  updateDisplay(displayValue);
+  //this used to replace currentValue
+  //currentValue /* THIS REMOVED EXPERIMENTALLY/= 2*/ /*- gives double the expected answer*/
+  /*currentValue*/
 });
 buttonDivide.addEventListener("click", (divider) => {
   // console.log("divide");
