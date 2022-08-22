@@ -24,7 +24,7 @@ const display = document.getElementById("display");
 const buttonDelete = document.getElementById("del");
 
 function updateDisplay(displayValue) {
-  display.value = currentValue || displayValue;
+  display.value = currentValue + displayValue;
   console.log(displayValue + "...displayValue func");
   console.log(currentValue + "...currentValue func");
   console.log(display.value + "...display.value");
@@ -91,13 +91,16 @@ buttonPlus.addEventListener("click", (adding) => {
 
 buttonEquals.addEventListener("click", (/*resulting*/) => {
   //console.log(currentValue + "pressed equals");
-  currentValue = eval(currentValue);
-  console.log(currentValue + "   << currentValue");
+  console.log(currentValue + "...currentValue at Equals but before eval");
+  displayValue = eval(currentValue); //currentValue swapped with display value
+  console.log(currentValue + "   << currentValue from equals");
+  console.log(displayValue + "...displayValue from equals");
 
   //console.log("equals");
 
   updateDisplay(
-    currentValue /* THIS REMOVED EXPERIMENTALLY/= 2*/ /*- gives double the expected answer*/
+    displayValue //this used to replace currentValue
+    //currentValue /* THIS REMOVED EXPERIMENTALLY/= 2*/ /*- gives double the expected answer*/
     /*currentValue*/
   );
 });
