@@ -68,6 +68,7 @@ numberElements.forEach((ref) => {
 
 buttonMultiply.addEventListener("click", () => {
   // previousKeyOperator = true;
+  if (previousKeyOperator) return;
   if (previousKeyOperator) {
     calculation = calculation.substr(0, calculation.length - 1);
   }
@@ -76,12 +77,14 @@ buttonMultiply.addEventListener("click", () => {
   console.log({ currentValue, calculation, previousKeyOperator });
 });
 buttonMinus.addEventListener("click", () => {
+  if (previousKeyOperator) return;
   previousKeyOperator = true;
   calculation += "-";
   console.log({ currentValue, calculation, previousKeyOperator });
 });
 
 buttonPlus.addEventListener("click", () => {
+  if (previousKeyOperator) return;
   previousKeyOperator = true;
   calculation += "+";
   console.log({ currentValue, calculation, previousKeyOperator });
@@ -99,17 +102,19 @@ buttonClear.addEventListener("click", () => {
 });
 
 //remove last character of display
-buttonDelete.addEventListener("click", (deleter) => {
-  var str = display.value;
-  str = str.substr(0, str.length - 1);
-  console.log(str + "this should get shortened in deleter");
-  //displayValue = "";
-  currentValue = str; //trial with these
-  console.log(currentValue + "...currentValue inside delete");
-  //console.log(displayValue + "...displayValue inside delete");
-  return (display.value = str);
+buttonDelete.addEventListener("click", () => {
+  currentValue = currentValue.substring(0, calculation.length - 1);
+  calculation = calculation.substring(0, calculation.length - 1);
+  var exam = calculation;
+  calculation.write(exam.substring(0, exam.length - 1));
+  console.log(exam + "should be a digit shorter");
+
+  updateDisplay(currentValue);
+
+  console.log({ currentValue, calculation, previousKeyOperator });
+  // return currentValue;
 });
-buttonEquals.addEventListener("click", (/*resulting*/) => {
+buttonEquals.addEventListener("click", () => {
   if (previousKeyOperator) return;
   const result = eval(calculation);
   calculation = result;
