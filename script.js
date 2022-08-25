@@ -98,24 +98,28 @@ buttonDivide.addEventListener("click", () => {
 buttonClear.addEventListener("click", () => {
   console.log("clear");
   currentValue = "";
+  calculation = "";
   updateDisplay(currentValue);
 });
 
 //remove last character of display
 buttonDelete.addEventListener("click", () => {
-  let numz = currentValue;
-  let text = numz.toString();
-  console.log(typeof text + "...text typeof");
-  text = text.substring(0, text.length - 1);
-  currentValue = parseInt(text);
-  console.log(typeof currentValue + "...currentvalue typeof");
+  let valNumToString = currentValue;
+  let valAsString = valNumToString.toString();
+
+  valAsString = valAsString.substring(0, valAsString.length - 1);
+  currentValue = parseInt(valAsString);
 
   calculation = calculation.substring(0, calculation.length - 1);
-  console.log(text + "...text");
   updateDisplay(currentValue);
 
+  if (currentValue === "" || NaN) {
+    currentValue === 0;
+    updateDisplay(0);
+  }
+
   console.log({ currentValue, calculation, previousKeyOperator });
-  return currentValue;
+  // return currentValue;
 });
 buttonEquals.addEventListener("click", () => {
   if (previousKeyOperator) return;
