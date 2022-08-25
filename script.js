@@ -63,6 +63,7 @@ numberElements.forEach((ref) => {
     calculation += num;
     updateDisplay(currentValue);
     console.log({ currentValue, calculation, previousKeyOperator });
+    console.log(typeof (currentValue + "...curr val type"));
   });
 });
 
@@ -113,11 +114,12 @@ buttonDelete.addEventListener("click", () => {
   calculation = calculation.substring(0, calculation.length - 1);
   updateDisplay(currentValue);
 
-  if (currentValue === "" || NaN) {
-    currentValue === 0;
-    updateDisplay(0);
-  }
+  if (NaN === currentValue) {
+    return currentValue === 0;
 
+    return updateDisplay(0);
+  }
+  console.log(typeof currentValue);
   console.log({ currentValue, calculation, previousKeyOperator });
   // return currentValue;
 });
