@@ -103,16 +103,19 @@ buttonClear.addEventListener("click", () => {
 
 //remove last character of display
 buttonDelete.addEventListener("click", () => {
-  currentValue = currentValue.substring(0, calculation.length - 1);
-  calculation = calculation.substring(0, calculation.length - 1);
-  var exam = calculation;
-  calculation.write(exam.substring(0, exam.length - 1));
-  console.log(exam + "should be a digit shorter");
+  let numz = currentValue;
+  let text = numz.toString();
+  console.log(typeof text + "...text typeof");
+  text = text.substring(0, text.length - 1);
+  currentValue = parseInt(text);
+  console.log(typeof currentValue + "...currentvalue typeof");
 
+  calculation = calculation.substring(0, calculation.length - 1);
+  console.log(text + "...text");
   updateDisplay(currentValue);
 
   console.log({ currentValue, calculation, previousKeyOperator });
-  // return currentValue;
+  return currentValue;
 });
 buttonEquals.addEventListener("click", () => {
   if (previousKeyOperator) return;
