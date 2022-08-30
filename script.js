@@ -84,27 +84,12 @@ buttonMinus.addEventListener("click", () => {
   console.log({ currentValue, calculation, previousKeyOperator });
 });
 
-buttonPlus.addEventListener(detleter, "click", () => {
+buttonPlus.addEventListener("click", () => {
   if (previousKeyOperator) {
-    buttonDelete.addEventListener("click", () => {
-      console.log("del invoked from plus");
-      let currValNumToString = currentValue;
-      let currValAsString = currValNumToString.toString();
+    secondDelete();
+    console.log("trying to delete");
+    // return currentValue;
 
-      currValAsString = currValAsString.substring(
-        0,
-        currValAsString.length - 1
-      );
-      currentValue = parseInt(currValAsString);
-
-      calculation = calculation.substring(0, calculation.length - 1);
-      updateDisplay(currentValue);
-
-      console.log(typeof currentValue);
-      console.log({ currentValue, calculation, previousKeyOperator });
-      // return currentValue;
-    });
-  } else {
     previousKeyOperator = true;
     calculation += "+";
     console.log({ currentValue, calculation, previousKeyOperator });
@@ -148,6 +133,22 @@ buttonDelete.addEventListener("click", () => {
   console.log({ currentValue, calculation, previousKeyOperator });
   // return currentValue;
 });
+
+function secondDelete() {
+  console.log("second delete invoked");
+  // let currValNumToString = currentValue;
+  // let currValAsString = currValNumToString.toString();
+
+  // currValAsString = currValAsString.substring(0, currValAsString.length - 1);
+  // currentValue = parseInt(currValAsString);
+
+  calculation = calculation.substring(0, calculation.length - 1);
+  updateDisplay(currentValue);
+
+  console.log(typeof currentValue);
+  console.log({ currentValue, calculation, previousKeyOperator });
+}
+
 buttonEquals.addEventListener("click", () => {
   if (previousKeyOperator) return;
   const result = eval(calculation);
