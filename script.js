@@ -84,18 +84,47 @@ buttonMinus.addEventListener("click", () => {
   console.log({ currentValue, calculation, previousKeyOperator });
 });
 
-buttonPlus.addEventListener("click", () => {
-  if (previousKeyOperator) return;
+buttonPlus.addEventListener(detleter, "click", () => {
+  if (previousKeyOperator) {
+    buttonDelete.addEventListener("click", () => {
+      console.log("del invoked from plus");
+      let currValNumToString = currentValue;
+      let currValAsString = currValNumToString.toString();
+
+      currValAsString = currValAsString.substring(
+        0,
+        currValAsString.length - 1
+      );
+      currentValue = parseInt(currValAsString);
+
+      calculation = calculation.substring(0, calculation.length - 1);
+      updateDisplay(currentValue);
+
+      console.log(typeof currentValue);
+      console.log({ currentValue, calculation, previousKeyOperator });
+      // return currentValue;
+    });
+  } else {
+    previousKeyOperator = true;
+    calculation += "+";
+    console.log({ currentValue, calculation, previousKeyOperator });
+  }
+});
+
+/*
   previousKeyOperator = true;
   calculation += "+";
   console.log({ currentValue, calculation, previousKeyOperator });
-});
+});*/
 
 buttonDivide.addEventListener("click", () => {
+  if (previousKeyOperator) return;
+
   previousKeyOperator = true;
   calculation += "/";
   console.log({ currentValue, calculation, previousKeyOperator });
 });
+
 buttonClear.addEventListener("click", () => {
   console.log("clear");
   currentValue = "";
@@ -105,20 +134,16 @@ buttonClear.addEventListener("click", () => {
 
 //remove last character of display
 buttonDelete.addEventListener("click", () => {
-  let valNumToString = currentValue;
-  let valAsString = valNumToString.toString();
+  console.log("del invoked");
+  let currValNumToString = currentValue;
+  let currValAsString = currValNumToString.toString();
 
-  valAsString = valAsString.substring(0, valAsString.length - 1);
-  currentValue = parseInt(valAsString);
+  currValAsString = currValAsString.substring(0, currValAsString.length - 1);
+  currentValue = parseInt(currValAsString);
 
   calculation = calculation.substring(0, calculation.length - 1);
   updateDisplay(currentValue);
 
-  if (NaN === currentValue) {
-    return currentValue === 0;
-
-    return updateDisplay(0);
-  }
   console.log(typeof currentValue);
   console.log({ currentValue, calculation, previousKeyOperator });
   // return currentValue;
