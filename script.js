@@ -69,7 +69,7 @@ numberElements.forEach((ref) => {
 
 buttonMultiply.addEventListener("click", () => {
   // previousKeyOperator = true;
-  if (previousKeyOperator) return;
+  if (previousKeyOperator) secondDelete();
   if (previousKeyOperator) {
     calculation = calculation.substr(0, calculation.length - 1);
   }
@@ -78,32 +78,32 @@ buttonMultiply.addEventListener("click", () => {
   console.log({ currentValue, calculation, previousKeyOperator });
 });
 buttonMinus.addEventListener("click", () => {
-  if (previousKeyOperator) return;
+  if (previousKeyOperator) secondDelete();
   previousKeyOperator = true;
   calculation += "-";
   console.log({ currentValue, calculation, previousKeyOperator });
 });
 
 buttonPlus.addEventListener("click", () => {
-  if (previousKeyOperator) {
-    secondDelete();
-    console.log("trying to delete");
-    // return currentValue;
-
+  if (previousKeyOperator) secondDelete();
+  console.log("...press plus should delete prev operator");
+  // return currentValue;
+  {
     previousKeyOperator = true;
     calculation += "+";
     console.log({ currentValue, calculation, previousKeyOperator });
   }
 });
 
-/*
+/*standard code for plus button
   previousKeyOperator = true;
   calculation += "+";
   console.log({ currentValue, calculation, previousKeyOperator });
 });*/
 
 buttonDivide.addEventListener("click", () => {
-  if (previousKeyOperator) return;
+  if (previousKeyOperator) /*return;*/ secondDelete();
+  console.log("...press DIVIDE should delete prev operator");
 
   previousKeyOperator = true;
   calculation += "/";
