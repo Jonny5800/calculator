@@ -2,12 +2,9 @@ let currentValue = "";
 let calculation = "";
 let previousKeyOperator = false;
 
-/*Things to fix
-- Function buttons - Make it so only one can be selected between numbers. Not like e.g 4+*5  
--Fix Del - Make Del button remove the last button input*/
 //All DOM elements
 const buttonZero = document.getElementById("zero");
-const buttonOne = document.getElementById("one"); //buttonOne will log the button value
+const buttonOne = document.getElementById("one");
 const buttonTwo = document.getElementById("two");
 const buttonThree = document.getElementById("three");
 const buttonFour = document.getElementById("four");
@@ -48,12 +45,11 @@ const numberElements = [
 //for (i = 0; i< numberElements.length ; i++){
 //numberElements[i].addEventListener
 //}
-//....................
-//
-//............
+
 numberElements.forEach((ref) => {
   ref.addEventListener("click", (elem) => {
     const num = elem.target.textContent;
+
     if (previousKeyOperator) {
       currentValue = num;
     } else {
@@ -70,9 +66,6 @@ numberElements.forEach((ref) => {
 buttonMultiply.addEventListener("click", () => {
   // previousKeyOperator = true;
   if (previousKeyOperator) secondDelete();
-  if (previousKeyOperator) {
-    calculation = calculation.substr(0, calculation.length - 1);
-  }
   previousKeyOperator = true;
   calculation += "*";
   console.log({ currentValue, calculation, previousKeyOperator });
@@ -82,12 +75,13 @@ buttonMinus.addEventListener("click", () => {
   previousKeyOperator = true;
   calculation += "-";
   console.log({ currentValue, calculation, previousKeyOperator });
+  console.log(previousKeyOperator + "prev key operator value");
 });
 
 buttonPlus.addEventListener("click", () => {
   if (previousKeyOperator) secondDelete();
   console.log("...press plus should delete prev operator");
-  // return currentValue;
+
   {
     previousKeyOperator = true;
     calculation += "+";
@@ -95,14 +89,8 @@ buttonPlus.addEventListener("click", () => {
   }
 });
 
-/*standard code for plus button
-  previousKeyOperator = true;
-  calculation += "+";
-  console.log({ currentValue, calculation, previousKeyOperator });
-});*/
-
 buttonDivide.addEventListener("click", () => {
-  if (previousKeyOperator) /*return;*/ secondDelete();
+  if (previousKeyOperator) secondDelete();
   console.log("...press DIVIDE should delete prev operator");
 
   previousKeyOperator = true;
@@ -131,16 +119,10 @@ buttonDelete.addEventListener("click", () => {
 
   console.log(typeof currentValue);
   console.log({ currentValue, calculation, previousKeyOperator });
-  // return currentValue;
 });
 
 function secondDelete() {
   console.log("second delete invoked");
-  // let currValNumToString = currentValue;
-  // let currValAsString = currValNumToString.toString();
-
-  // currValAsString = currValAsString.substring(0, currValAsString.length - 1);
-  // currentValue = parseInt(currValAsString);
 
   calculation = calculation.substring(0, calculation.length - 1);
   updateDisplay(currentValue);
