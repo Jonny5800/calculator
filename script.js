@@ -48,6 +48,7 @@ const numberElements = [
 
 numberElements.forEach((ref) => {
   ref.addEventListener("click", (elem) => {
+    removeZeroFromCalAndCurr();
     const num = elem.target.textContent;
 
     if (previousKeyOperator) {
@@ -100,8 +101,8 @@ buttonDivide.addEventListener("click", () => {
 
 buttonClear.addEventListener("click", () => {
   console.log("clear");
-  currentValue = "";
-  calculation = "";
+  currentValue = 0;
+  calculation = 0;
   updateDisplay(currentValue);
 });
 
@@ -129,6 +130,24 @@ function secondDelete() {
 
   console.log(typeof currentValue);
   console.log({ currentValue, calculation, previousKeyOperator });
+}
+
+function removeZeroFromCalAndCurr() {
+  if (calculation === 0 && currentValue === 0) {
+    console.log("...removeZeroFromCalAndCurr invoked");
+    let currValNumToString = currentValue;
+    let currValAsString = currValNumToString.toString();
+
+    currValAsString = currValAsString.substring(0, currValAsString.length - 1);
+    currentValue = parseInt(currValAsString);
+
+    //calculation = calculation.substring(0, calculation.length - 1);
+    updateDisplay(currentValue);
+
+    console.log(typeof currentValue);
+    console.log({ currentValue, calculation, previousKeyOperator });
+    return;
+  }
 }
 
 buttonEquals.addEventListener("click", () => {
