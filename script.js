@@ -48,7 +48,7 @@ const numberElements = [
 
 numberElements.forEach((ref) => {
   ref.addEventListener("click", (elem) => {
-    removeZeroFromCalAndCurr();
+    // removeZeroFromCalAndCurr();
     const num = elem.target.textContent;
 
     if (previousKeyOperator) {
@@ -101,9 +101,10 @@ buttonDivide.addEventListener("click", () => {
 
 buttonClear.addEventListener("click", () => {
   console.log("clear");
-  currentValue = 0;
-  calculation = 0;
+  currentValue = "";
+  calculation = "";
   updateDisplay(currentValue);
+  return;
 });
 
 //remove last character of display
@@ -132,23 +133,23 @@ function secondDelete() {
   console.log({ currentValue, calculation, previousKeyOperator });
 }
 
-function removeZeroFromCalAndCurr() {
-  if (calculation === 0 && currentValue === 0) {
-    console.log("...removeZeroFromCalAndCurr invoked");
-    let currValNumToString = currentValue;
-    let currValAsString = currValNumToString.toString();
+// function removeZeroFromCalAndCurr() {
+//   if (calculation === 0 && currentValue === 0) {
+//     console.log("...removeZeroFromCalAndCurr invoked");
+//     let currValNumToString = currentValue;
+//     let currValAsString = currValNumToString.toString();
 
-    currValAsString = currValAsString.substring(0, currValAsString.length - 1);
-    currentValue = parseInt(currValAsString);
+//     currValAsString = currValAsString.substring(0, currValAsString.length - 1);
+//     currentValue = parseInt(currValAsString);
 
-    //calculation = calculation.substring(0, calculation.length - 1);
-    updateDisplay(currentValue);
+//     //calculation = calculation.substring(0, calculation.length - 1);
+//     updateDisplay(currentValue);
 
-    console.log(typeof currentValue);
-    console.log({ currentValue, calculation, previousKeyOperator });
-    return;
-  }
-}
+//     console.log(typeof currentValue);
+//     console.log({ currentValue, calculation, previousKeyOperator });
+//     return;
+//   }
+//}
 
 buttonEquals.addEventListener("click", () => {
   if (previousKeyOperator) return;
@@ -157,3 +158,12 @@ buttonEquals.addEventListener("click", () => {
   currentValue = "";
   updateDisplay(result);
 });
+
+let num1 = "24+4";
+let sum = parseInt(num1);
+let calcd = eval(sum);
+console.log(calcd + "...this should be 28 not 24");
+console.log(sum + "...thisis sum");
+console.log(num1 + "...this is num1");
+let straightEval = eval(num1);
+console.log(straightEval + "...straight eval");
